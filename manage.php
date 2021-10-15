@@ -8,6 +8,7 @@
 */
 
 //manage.php for managing blog posts and etc
+
 include("includes/config.inc.php");
 session_start();
 $err = "";
@@ -15,6 +16,15 @@ $err = "";
 if(isset($_SESSION['username']) && isset($_SESSION['loggedin']))
 {
     if($_SESSION['loggedin'] == true){
+        // get latest id :husk:
+        $getnewid = "SELECT MAX(id) as 'maxid' FROM blogposts";
+        $result = $conn->query($getnewid);
+
+        if ($result->num_rows > 0){
+            while ($row = $result->fetch_assoc()){
+                $large = $row["maxid"];
+            }
+        }
         // Post new blog
         if(isset($_POST['newBlogSubmit']))
         {
@@ -32,8 +42,10 @@ if(isset($_SESSION['username']) && isset($_SESSION['loggedin']))
                     if($blogInsert)
                     {
                         $err = "Blog post successfully posted!";
+                        header("Location: read.php?id=" . $large++); // not the most elegant solution but works for now
                     }
-                    else{
+                    else
+                    {
                         $err = "SQL query failed for some reason";
                     }
                 }
@@ -47,6 +59,33 @@ if(isset($_SESSION['username']) && isset($_SESSION['loggedin']))
                 $err = "No blog title was specified!";
             }
         }
+        //delete blog entry
+        elseif (isset($_POST['deleteBlogEntry']))
+        {
+            if (isset($_POST['deleteBlogEntryInput']))
+            {
+                $deleteId = $_POST['deleteBlogEntryInput'];
+
+                //process the removal of life
+                $delete = $conn->prepare("DELETE FROM `blogposts` WHERE ID = ?");
+                $delete->bind_param("i",$deleteId);
+                $delete->execute();
+
+                if($delete)
+                {
+                    $err = "Blog post has been deleted!";
+                }
+                else
+                {
+                    $err = "SQL Query failed when deleting blog post";
+                }
+            }
+            else
+            {
+                $err = "No blog id was provided!";
+            }
+        }
+        
 ?>
     
 <!DOCTYPE html>
@@ -56,6 +95,7 @@ if(isset($_SESSION['username']) && isset($_SESSION['loggedin']))
         <title>Manage - Ian's Blog</title>
         <meta property="og:title" content=" - Ian's Blog"/>
         <meta property="og:description" content="Personal homepage of Ian Hiew"/>
+        <meta property="og:url" content="https://cleantalk.cf/blog.php/manage.php">
         <link rel="stylesheet" href="assets/styles/style.css">
     </head>
     <body class="indexBodyHolder">
@@ -72,6 +112,11 @@ if(isset($_SESSION['username']) && isset($_SESSION['loggedin']))
                     <textarea class="textarea blogInput" name="blogInput" id="blogInput"></textarea><br>
                     <input type="submit" name="newBlogSubmit" value="Post!">
                 </form>
+                <form method="post" action="manage.php">
+                    <label for="deleteBlogEntryLabel" class="label deleteBlogEntryLabel">Delete blog id: </label><br>
+                    <input type="text" name="deleteBlogEntryInput" class="input deleteBlogEntryInput"><br>
+                    <input type="submit" name="deleteBlogEntry" value="Delete!">
+                </form>
                 <div class="responseMessageHolder"><?php echo $err;?></div>
             </div>
         </div>
@@ -81,11 +126,13 @@ if(isset($_SESSION['username']) && isset($_SESSION['loggedin']))
 
 <?php
 }
-    else{
+    else
+    {
         header("Location: index.php");
     }
 }
-else{
+else
+{
     header("Location: index.php");
 }
 ?>
