@@ -1,5 +1,9 @@
 <?php
-$conn = new mysqli("localhost","root","","blog");
+    $conn = new mysqli("localhost","root","","blog");
 
-$currentPage = "c";
+    $currentPage = "c";
+
+    // config
+    $name = "Name";
+    $fullName = "Full Name";
 ?>

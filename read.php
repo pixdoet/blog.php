@@ -21,9 +21,9 @@ if(isset($_GET['id'])){
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <meta property="og:title" content="<?php echo $title;?> - Ian's Blog"/>
+        <meta property="og:title" content="<?php echo $title;?> - <?php echo $name; ?>'s Blog"/>
         <meta property="og:description" content="Read stuff I write because of idk." />
-        <title><?php echo $title;?> - Ian's Blog</title>
+        <title><?php echo $title;?> - <?php echo $name; ?>'s Blog</title>
         <link rel="stylesheet" href="assets/styles/style.css">
     </head>
     <body class="date-30092021 site-misaligned-center site-allow-adverts site-not-active site-id-valid exp-kevlar-settings exp-invert-logo exp-hitchhiker-disabled not-nirvana-dogfood not-ian-hiew">

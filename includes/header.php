@@ -13,7 +13,7 @@ if ($result->num_rows > 0){
 
 <div class="header">
     <div class="leftBar">
-        Ian's Blog | Latest post: <?php echo $large; ?>
+    <?php echo $name; ?>'s Blog | Latest post: <?php echo $large; ?>
     </div>
     <div class="rightBar">
         Today is: <?php echo date("d/m/Y");?>

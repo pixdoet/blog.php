@@ -92,9 +92,9 @@ if(isset($_SESSION['username']) && isset($_SESSION['loggedin']))
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Manage - Ian's Blog</title>
-        <meta property="og:title" content=" - Ian's Blog"/>
-        <meta property="og:description" content="Personal homepage of Ian Hiew"/>
+        <title>Manage - <?php echo $name; ?>'s Blog</title>
+        <meta property="og:title" content=" - <?php echo $name; ?>'s Blog"/>
+        <meta property="og:description" content="Personal homepage of <?php echo $fullName; ?>"/>
         <meta property="og:url" content="https://cleantalk.cf/blog.php/manage.php">
         <link rel="stylesheet" href="assets/styles/style.css">
     </head>

@@ -7,16 +7,16 @@ $currentPage = "c";
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Index - Ian's blog</title>
-        <meta property="og:title" content="Index - Ian's Blog"/>
-        <meta property="og:description" content="Personal homepage of Ian Hiew"/>
+        <title>Index - <?php echo $name; ?>'s blog</title>
+        <meta property="og:title" content="Index - <?php echo $name; ?>'s Blog"/>
+        <meta property="og:description" content="Personal homepage of <?php echo $fullName; ?>"/>
         
         <link rel="stylesheet" href="assets/styles/style.css">
     </head>
     <body class="indexBodyHolder">
         <?php include("includes/header.php");?>
         <div class="titleHolder">
-            <h1>Ian's Blog</h1>
+            <h1><?php echo $name; ?>'s Blog</h1>
         </div>
         <div class="contentHolder">
             <p>Welcome! This is a blog thingy that I wrote for fun.</p>
