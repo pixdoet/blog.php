@@ -7,13 +7,13 @@
         <title>Read</title>
         <link rel="stylesheet" href="assets/styles/style.css">
         <meta charset="utf-8">
-        <meta property="og:title" content="Read - Ian's Blog"/>
+        <meta property="og:title" content="Read - <?php echo $name; ?>'s Blog"/>
         <meta property="og:description" content="Read stuff I write because of idk." />
     </head>
     <body class="date-30092021 site-misaligned-center site-allow-adverts site-not-active site-id-valid exp-kevlar-settings exp-invert-logo exp-hitchhiker-disabled not-nirvana-dogfood not-ian-hiew">
         <?php include("includes/header.php");?>
         <div class="titleHolder">
-            <h1>Ian's Blog</h1>
+            <h1><?php echo $name; ?>'s Blog</h1>
         </div>
         <div class="contentHolder">
             <h3>The blog gets better when you put an ID!</h3>

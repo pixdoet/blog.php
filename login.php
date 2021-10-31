@@ -33,9 +33,9 @@ if(isset($_POST['submit']) && isset($_POST['password']) && isset($_POST['usernam
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Login - Ian's Blog</title>
-        <meta property="og:title" content=" - Ian's Blog"/>
-        <meta property="og:description" content="Personal homepage of Ian Hiew"/>
+        <title>Login - <?php echo $name; ?>'s Blog</title>
+        <meta property="og:title" content=" - <?php echo $name; ?>'s Blog"/>
+        <meta property="og:description" content="Personal homepage of <?php echo $fullName; ?>"/>
         
         <link rel="stylesheet" href="assets/styles/style.css">
     </head>
