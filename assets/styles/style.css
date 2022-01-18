@@ -1,0 +1,87 @@
+/* all */
+body{
+    background-image: url("/assets/images/space.gif");
+    background-color: navy; /* fallback in case of not loading image :troll: */
+}
+*{
+    color:white;
+    margin: auto;
+    text-align:center;
+    font-family: Arial;
+}
+h1,h2,h3{
+    color:yellow !important;
+    text-align:center;
+}
+/* inputs */
+input[type=text]{
+    color:black !important;
+}
+input[type="password"]{
+    color:black !important;
+}
+input[type="submit"]{
+    color:black !important;
+}
+textarea{
+    width:auto;
+    color:black !important;
+    height:300px;
+    padding-left:30px;
+    padding-right:30px;
+    padding-top:5px;
+    padding-bottom:5px;
+}
+/* header */
+.leftBar{
+    float:left !important;
+}
+.rightBar{
+    float:right !important;
+}
+/* footer */
+.footer{
+    padding-top:3px;
+    position:fixed;
+    bottom:0;
+    margin:0 auto !important;    
+}
+.more .homepage, .srdl, .rol, .blog{
+    display: inline-block;
+    *display: inline; zoom: 1;
+    vertical-align: top;
+    font-size: 12px;
+    padding-top: 6px;
+}
+.currentpage{
+    font-weight:bold;
+}
+/* noid.php & read.php */
+.titleHolder{
+    margin:auto;
+    text-align:center;
+}
+.titleHolder h1{
+    color:yellow !important;
+    text-align:center;
+    padding-top: 19.2px;
+}
+.contentHolder{
+    margin:auto !important;
+    width: 65% !important;
+}
+/* read.php */
+.contentHolder .contentHolder2{
+    margin:auto;
+    padding-left:20px;
+    padding-right:20px;
+}
+/* browse.php */
+.h3Title{
+    padding-top:10px;
+    padding-bottom:10px;
+}
+.pContent{
+    padding-top:5px;
+    padding-bottom:5px;
+}
